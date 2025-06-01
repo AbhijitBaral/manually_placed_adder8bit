@@ -89,8 +89,8 @@ module RCA #(parameter M=8)(
 (*RLOC = "X0Y0"*)CARRY4 carry_chain_inst0(
 .CO(carry[3:0]),
 .O(sum[3:0]),
-.CI(),
-.CYINIT(Cin),
+.CI(Cin),
+.CYINIT(),
 .DI(A[3:0]),
 .S(Propagate[3:0])
 );
