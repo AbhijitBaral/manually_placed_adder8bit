@@ -9,7 +9,7 @@ module compressed_adder #(parameter K=8)(
     wire [K/2-1:0]group_carry;
     assign Cout = group_carry[K/2-1];
 
-    (*RLOC_ORIGIN = "X0Y0", KEEP_HIERARCHY="yes"*)carry_compressor #(.K(K)) CC_inst(.A(A),.B(B), .Cin(Cin), .group_carry(group_carry), .Cout(Cout));
+    (*RLOC_ORIGIN = "X0Y12", KEEP_HIERARCHY="yes"*)carry_compressor #(.K(K)) CC_inst(.A(A),.B(B), .Cin(Cin), .group_carry(group_carry), .Cout(Cout));
     
     //Compressed adder cells for K least significant bits
     
@@ -24,7 +24,7 @@ module compressed_adder #(parameter K=8)(
         .I5(1'b1)
     );
     
-    (*RLOC = "X2Y0"*)LUT6_2 #(.INIT(64'hE11E877899996666))So_LUT_1(
+    (*RLOC = "X1Y0"*)LUT6_2 #(.INIT(64'hE11E877899996666))So_LUT_1(
         .O6(sum[3]),
         .O5(sum[2]),
         .I0(A[2]),
@@ -34,7 +34,7 @@ module compressed_adder #(parameter K=8)(
         .I4(group_carry[0]),
         .I5(1'b1)
     );
-    (*RLOC = "X2Y0"*)LUT6_2 #(.INIT(64'hE11E877899996666))So_LUT_2(
+    (*RLOC = "X1Y0"*)LUT6_2 #(.INIT(64'hE11E877899996666))So_LUT_2(
         .O6(sum[5]),
         .O5(sum[4]),
         .I0(A[4]),
@@ -44,7 +44,7 @@ module compressed_adder #(parameter K=8)(
         .I4(group_carry[1]),
         .I5(1'b1)
     );
-    (*RLOC = "X2Y0"*)LUT6_2 #(.INIT(64'hE11E877899996666))So_LUT_3(
+    (*RLOC = "X1Y0"*)LUT6_2 #(.INIT(64'hE11E877899996666))So_LUT_3(
         .O6(sum[7]),
         .O5(sum[6]),
         .I0(A[6]),
