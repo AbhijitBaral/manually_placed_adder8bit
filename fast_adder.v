@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+(*RLOC_ORIGIN = "X0Y12", KEEP_HIERARCHY="yes"*)
 module fastAdder #(parameter L=16,M=8)(
         input [L-1:0] A,B,
         input Cin,
